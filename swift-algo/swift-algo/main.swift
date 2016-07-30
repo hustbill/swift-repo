@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+//let result = twoSumProblem({1, 2, 3, 4}, 3)
+
+print("Hello, World!" )
+let result = twoSumProblem([1, 2, 3, 4], k: 3)
+print(result)
+
 
