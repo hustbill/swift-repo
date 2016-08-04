@@ -41,3 +41,40 @@ func calculateStatistics(scores:[Int]) -> (min :Int, max:Int, sum:Int) {
 let statistics = calculateStatistics([5, 3, 100, 3, 9])
 print(statistics.min, statistics.max, statistics.sum)
 print(statistics.2)
+
+// Functions can also take a variable number of arguments, collecting them into an array.
+func sumOf(numbers: Int...) -> Int {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+sumOf()
+sumOf(42, 597, 12)
+
+//Write a function that calculates the average of its arguments.
+func avgOf(numbers: Int...) -> (Double) {
+	var sum = 0
+
+	for number in numbers {
+		sum += number
+	}
+	let avg = Double(sum) / Double(numbers.count)
+	
+	return avg
+}
+var avg1 = avgOf(42, 597, 12)
+print(avg1)
+
+
+func AvgInOneLine(numbers: Int...) -> (Double) {
+	// ref https://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift#
+	let avg = Double(numbers.reduce(0, combine: +)) / Double(numbers.count)
+	
+	return avg
+}
+
+var avg2 = AvgInOneLine(42, 597, 12)
+print(avg2)
+
