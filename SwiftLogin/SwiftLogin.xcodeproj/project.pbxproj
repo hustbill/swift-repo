@@ -16,13 +16,6 @@
 		A93AEF541D5564F50000E721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93AEF521D5564F50000E721 /* LaunchScreen.storyboard */; };
 		A93AEF5F1D5564F50000E721 /* SwiftLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93AEF5E1D5564F50000E721 /* SwiftLoginTests.swift */; };
 		A93AEF6A1D5564F50000E721 /* SwiftLoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93AEF691D5564F50000E721 /* SwiftLoginUITests.swift */; };
-		A9B378B11D556A2000EB21EB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378B01D556A2000EB21EB /* libz.tbd */; };
-		A9B378B31D556A2900EB21EB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378B21D556A2900EB21EB /* libc++.tbd */; };
-		A9B378B51D556A3300EB21EB /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378B41D556A3300EB21EB /* libicucore.tbd */; };
-		A9B378B71D556A3D00EB21EB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378B61D556A3D00EB21EB /* libsqlite3.tbd */; };
-		A9B378B91D556A4800EB21EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378B81D556A4800EB21EB /* SystemConfiguration.framework */; };
-		A9B378BB1D556A4E00EB21EB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378BA1D556A4E00EB21EB /* MobileCoreServices.framework */; };
-		A9B378BD1D556A5600EB21EB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B378BC1D556A5600EB21EB /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4806ACEE3A03284089B851B3 /* Pods_SwiftLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AEF421D5564F50000E721 /* SwiftLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AEF451D5564F50000E721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93AEF471D5564F50000E721 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -72,15 +64,6 @@
 		A93AEF651D5564F50000E721 /* SwiftLoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLoginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93AEF691D5564F50000E721 /* SwiftLoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoginUITests.swift; sourceTree = "<group>"; };
 		A93AEF6B1D5564F50000E721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9B378B01D556A2000EB21EB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		A9B378B21D556A2900EB21EB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		A9B378B41D556A3300EB21EB /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		A9B378B61D556A3D00EB21EB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		A9B378B81D556A4800EB21EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A9B378BA1D556A4E00EB21EB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A9B378BC1D556A5600EB21EB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		AC7746162950E37CF221FC35 /* Pods-SwiftLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLogin/Pods-SwiftLogin.debug.xcconfig"; sourceTree = "<group>"; };
-		AE5A6D50CA3D4ED584DE40AC /* Pods-SwiftLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLogin/Pods-SwiftLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,13 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B378BD1D556A5600EB21EB /* CoreTelephony.framework in Frameworks */,
-				A9B378BB1D556A4E00EB21EB /* MobileCoreServices.framework in Frameworks */,
-				A9B378B91D556A4800EB21EB /* SystemConfiguration.framework in Frameworks */,
-				A9B378B71D556A3D00EB21EB /* libsqlite3.tbd in Frameworks */,
-				A9B378B51D556A3300EB21EB /* libicucore.tbd in Frameworks */,
-				A9B378B31D556A2900EB21EB /* libc++.tbd in Frameworks */,
-				A9B378B11D556A2000EB21EB /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,25 +94,8 @@
 		2E22C7D66AC78CC0359C44AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9B378BC1D556A5600EB21EB /* CoreTelephony.framework */,
-				A9B378BA1D556A4E00EB21EB /* MobileCoreServices.framework */,
-				A9B378B81D556A4800EB21EB /* SystemConfiguration.framework */,
-				A9B378B61D556A3D00EB21EB /* libsqlite3.tbd */,
-				A9B378B41D556A3300EB21EB /* libicucore.tbd */,
-				A9B378B21D556A2900EB21EB /* libc++.tbd */,
-				A9B378B01D556A2000EB21EB /* libz.tbd */,
-				4806ACEE3A03284089B851B3 /* Pods_SwiftLogin.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3BD42C9735F30A778DCC0255 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC7746162950E37CF221FC35 /* Pods-SwiftLogin.debug.xcconfig */,
-				AE5A6D50CA3D4ED584DE40AC /* Pods-SwiftLogin.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		A93AEF391D5564F50000E721 = {
@@ -146,7 +105,6 @@
 				A93AEF5D1D5564F50000E721 /* SwiftLoginTests */,
 				A93AEF681D5564F50000E721 /* SwiftLoginUITests */,
 				A93AEF431D5564F50000E721 /* Products */,
-				3BD42C9735F30A778DCC0255 /* Pods */,
 				2E22C7D66AC78CC0359C44AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -522,7 +480,6 @@
 		};
 		A93AEF6F1D5564F50000E721 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC7746162950E37CF221FC35 /* Pods-SwiftLogin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftLogin/Info.plist;
@@ -557,7 +514,6 @@
 		};
 		A93AEF701D5564F50000E721 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE5A6D50CA3D4ED584DE40AC /* Pods-SwiftLogin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftLogin/Info.plist;
