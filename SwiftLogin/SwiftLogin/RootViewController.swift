@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
@@ -16,7 +17,12 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var testObject:AVObject = AVObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.save()
+        
         // Configure the page view controller and add it as a child view controller.
+        
         self.pageViewController = UIPageViewController(transitionStyle: .PageCurl, navigationOrientation: .Horizontal, options: nil)
         self.pageViewController!.delegate = self
 

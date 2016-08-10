@@ -1,0 +1,5 @@
+use_frameworks! # LeanCloud Swift SDK can only be integrated as framework.
+
+target 'SwiftLogin' do
+	pod 'LeanCloud', '>= 0'
+end

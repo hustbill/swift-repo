@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B5967F585EF22954130DBA1C992F0B234B958723",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0A02D7AD172CD0FE10B50DDED69BA407037CC7BF" : 0,
+    "B5967F585EF22954130DBA1C992F0B234B958723" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EB1EA1B9-CD69-4892-8DC7-3FD52EC41780",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0A02D7AD172CD0FE10B50DDED69BA407037CC7BF" : "swift-repo\/SwiftLogin\/leancloud-objc-sdk\/Breakpad\/",
+    "B5967F585EF22954130DBA1C992F0B234B958723" : "swift-repo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftLogin",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftLogin\/SwiftLogin.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/leancloud\/Breakpad.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0A02D7AD172CD0FE10B50DDED69BA407037CC7BF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:hustbill\/swift-repo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B5967F585EF22954130DBA1C992F0B234B958723"
+    }
+  ]
+}
