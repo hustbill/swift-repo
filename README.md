@@ -5,3 +5,10 @@ My swift projects, app
 
 Move from object-c to Swift
 
+## Swift Login 
+A classical login demo in Swift
+
+## Calibration
+communicate with a Bluetooth device  
+
+
