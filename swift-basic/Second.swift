@@ -78,3 +78,15 @@ func AvgInOneLine(numbers: Int...) -> (Double) {
 var avg2 = AvgInOneLine(42, 597, 12)
 print(avg2)
 
+// nested functions
+func returnFifteen() -> Int {
+	var y = 10
+	func add() {
+		y += 5
+	}
+	add()
+	return y
+}
+
+returnFifteen()
+
