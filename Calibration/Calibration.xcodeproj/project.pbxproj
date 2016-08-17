@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A90E2EB61D5BF18100A6DF10 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E2EB51D5BF18100A6DF10 /* CalibrationViewController.swift */; };
+		A922864A1D650AA700005B6C /* BLEPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92286491D650AA700005B6C /* BLEPairViewController.swift */; };
 		A96AF8231D5BDE690010FBA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96AF8221D5BDE690010FBA2 /* AppDelegate.swift */; };
 		A96AF8251D5BDE690010FBA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96AF8241D5BDE690010FBA2 /* ViewController.swift */; };
 		A96AF8281D5BDE690010FBA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96AF8261D5BDE690010FBA2 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		A96AF82D1D5BDE690010FBA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96AF82B1D5BDE690010FBA2 /* LaunchScreen.storyboard */; };
 		A96AF8381D5BDE690010FBA2 /* calibrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96AF8371D5BDE690010FBA2 /* calibrationTests.swift */; };
 		A96AF8431D5BDE690010FBA2 /* calibrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96AF8421D5BDE690010FBA2 /* calibrationUITests.swift */; };
+		A9E1A9F31D5BFC8400B0A68D /* ImageLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1A9F21D5BFC8400B0A68D /* ImageLoadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		A90E2EB51D5BF18100A6DF10 /* CalibrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		A92286491D650AA700005B6C /* BLEPairViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPairViewController.swift; sourceTree = "<group>"; };
 		A96AF81F1D5BDE690010FBA2 /* calibration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calibration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96AF8221D5BDE690010FBA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A96AF8241D5BDE690010FBA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		A96AF83E1D5BDE690010FBA2 /* calibrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calibrationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96AF8421D5BDE690010FBA2 /* calibrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calibrationUITests.swift; sourceTree = "<group>"; };
 		A96AF8441D5BDE690010FBA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9E1A9F21D5BFC8400B0A68D /* ImageLoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +106,12 @@
 				A96AF8221D5BDE690010FBA2 /* AppDelegate.swift */,
 				A96AF8241D5BDE690010FBA2 /* ViewController.swift */,
 				A96AF8261D5BDE690010FBA2 /* Main.storyboard */,
+				A9E1A9F21D5BFC8400B0A68D /* ImageLoadViewController.swift */,
 				A96AF8291D5BDE690010FBA2 /* Assets.xcassets */,
 				A96AF82B1D5BDE690010FBA2 /* LaunchScreen.storyboard */,
 				A96AF82E1D5BDE690010FBA2 /* Info.plist */,
 				A90E2EB51D5BF18100A6DF10 /* CalibrationViewController.swift */,
+				A92286491D650AA700005B6C /* BLEPairViewController.swift */,
 			);
 			path = calibration;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 			files = (
 				A96AF8251D5BDE690010FBA2 /* ViewController.swift in Sources */,
 				A90E2EB61D5BF18100A6DF10 /* CalibrationViewController.swift in Sources */,
+				A922864A1D650AA700005B6C /* BLEPairViewController.swift in Sources */,
+				A9E1A9F31D5BFC8400B0A68D /* ImageLoadViewController.swift in Sources */,
 				A96AF8231D5BDE690010FBA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

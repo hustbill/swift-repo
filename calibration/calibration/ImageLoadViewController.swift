@@ -1,5 +1,5 @@
 //
-//  CalibrationViewController.swift
+//  ImageLoadViewController.swift
 //  calibration
 //
 //  Created by bill on 8/10/16.
@@ -8,16 +8,15 @@
 
 import UIKit
 
-class CalibrationViewController: UIViewController {
-
+class ImageLoadViewController: UIViewController {
+    
     // MARK: Properties
     
     @IBOutlet weak var blueToothBondingInfo: UITextField!
     
     @IBOutlet weak var pairButton: UIButton!
- 
+    
     // MARK: Actions
     @IBAction func calibrationTest(sender: UIButton) {
-        print("start to calibration")
     }
 }
