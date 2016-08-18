@@ -12,8 +12,15 @@ class BLEPairViewController: UIViewController {
 
     // MARK: Properties
 
+    @IBOutlet weak var BLEDeviceList: UITableView!
     
     // MARK: Actions
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        print("print the bluetooth list")
+    }
     
 }
