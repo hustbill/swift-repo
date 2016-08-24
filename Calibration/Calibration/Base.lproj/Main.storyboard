@@ -38,7 +38,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginSys:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2x-fe-2Ac"/>
-                                    <segue destination="C5e-Ot-z4c" kind="show" id="usL-Jp-9sW"/>
+                                    <segue destination="5QJ-Fy-Nmv" kind="show" id="Ppr-zG-Ruc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmw-4p-3bw">
@@ -69,28 +69,40 @@
             </objects>
             <point key="canvasLocation" x="140" y="418"/>
         </scene>
-        <!--Image Load View Controller-->
-        <scene sceneID="2Ai-6Q-fA6">
+        <!--蓝牙搜寻-->
+        <scene sceneID="dpN-Ht-uFC">
             <objects>
-                <viewController id="VpP-AG-hvk" customClass="ImageLoadViewController" sceneMemberID="viewController">
+                <viewController title="蓝牙搜寻" id="5QJ-Fy-Nmv" customClass="BLEScanViewController" customModule="calibration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="asT-oy-gKB"/>
-                        <viewControllerLayoutGuide type="bottom" id="A23-42-51y"/>
+                        <viewControllerLayoutGuide type="top" id="Jdz-f8-bDj"/>
+                        <viewControllerLayoutGuide type="bottom" id="zzC-5o-Dkh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ara-Zn-AUZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="V8j-va-q8d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSi-KO-xqL">
-                                <rect key="frame" x="21" y="46" width="333" height="337"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蓝牙搜寻中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6S-YE-t1K">
+                                <rect key="frame" x="145" y="28" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-1W-bSD">
+                                <rect key="frame" x="165" y="312" width="45" height="30"/>
+                                <state key="normal" title="下一步"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="ScannBLE" destination="uyo-1W-bSD" id="Lze-iH-U9a"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JI4-3U-beU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cnq-Yn-zh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.5" y="1258.5"/>
+            <point key="canvasLocation" x="644.5" y="1045.5"/>
         </scene>
         <!--Calibration View Controller-->
         <scene sceneID="2xU-8k-ToS">
@@ -159,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCL-3I-gcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020.5" y="292.5"/>
+            <point key="canvasLocation" x="1127.5" y="292.5"/>
         </scene>
     </scenes>
 </document>

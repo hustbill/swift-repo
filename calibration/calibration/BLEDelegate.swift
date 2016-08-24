@@ -6,4 +6,8 @@
 //  Copyright © 2016 bill. All rights reserved.
 //
 
-import Foundation
+import CoreBluetooth
+
+public protocol BLEDelegate {
+    func centralManagerDidUpdateState(central: CBCentralManager)
+}
