@@ -1,9 +1,11 @@
 //
 //  MainController.swift
 //  TableViewController
-//
+//  
+//  Reference: http://www.hangge.com/blog/cache/detail_716.html
 //  Created by bill on 8/30/16.
 //  Copyright © 2016 bill. All rights reserved.
+//
 //
 import UIKit
 
