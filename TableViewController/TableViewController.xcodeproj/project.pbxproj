@@ -16,6 +16,8 @@
 		A9C4E27E1D76032B0041220C /* TableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E27D1D76032B0041220C /* TableViewControllerTests.swift */; };
 		A9C4E2891D76032B0041220C /* TableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2881D76032B0041220C /* TableViewControllerUITests.swift */; };
 		A9C4E2971D7603D20041220C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2961D7603D20041220C /* MainController.swift */; };
+		A9FB363D1D76584400DBB2DF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB363C1D76584400DBB2DF /* Task.swift */; };
+		A9FB363F1D76587800DBB2DF /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB363E1D76587800DBB2DF /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		A9C4E2881D76032B0041220C /* TableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerUITests.swift; sourceTree = "<group>"; };
 		A9C4E28A1D76032B0041220C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C4E2961D7603D20041220C /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		A9FB363C1D76584400DBB2DF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		A9FB363E1D76587800DBB2DF /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				A9C4E2711D76032B0041220C /* LaunchScreen.storyboard */,
 				A9C4E2741D76032B0041220C /* Info.plist */,
 				A9C4E2961D7603D20041220C /* MainController.swift */,
+				A9FB363C1D76584400DBB2DF /* Task.swift */,
+				A9FB363E1D76587800DBB2DF /* TaskViewController.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -264,8 +270,10 @@
 			files = (
 				A9C4E2971D7603D20041220C /* MainController.swift in Sources */,
 				A9C4E26B1D76032B0041220C /* SecondViewController.swift in Sources */,
+				A9FB363D1D76584400DBB2DF /* Task.swift in Sources */,
 				A9C4E2671D76032B0041220C /* AppDelegate.swift in Sources */,
 				A9C4E2691D76032B0041220C /* FirstViewController.swift in Sources */,
+				A9FB363F1D76587800DBB2DF /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +500,7 @@
 				A9C4E28F1D76032B0041220C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9C4E2901D76032B0041220C /* Build configuration list for PBXNativeTarget "TableViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +509,7 @@
 				A9C4E2921D76032B0041220C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9C4E2931D76032B0041220C /* Build configuration list for PBXNativeTarget "TableViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +518,7 @@
 				A9C4E2951D76032B0041220C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
