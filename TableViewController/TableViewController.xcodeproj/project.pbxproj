@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4B74E11D769F5D00227B1B /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4B74E01D769F5D00227B1B /* TaskTableViewCell.swift */; };
 		A9C4E2671D76032B0041220C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2661D76032B0041220C /* AppDelegate.swift */; };
 		A9C4E2691D76032B0041220C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2681D76032B0041220C /* FirstViewController.swift */; };
 		A9C4E26B1D76032B0041220C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E26A1D76032B0041220C /* SecondViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A4B74E01D769F5D00227B1B /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		A9C4E2631D76032B0041220C /* TableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C4E2661D76032B0041220C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C4E2681D76032B0041220C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				A9C4E2961D7603D20041220C /* MainController.swift */,
 				A9FB363C1D76584400DBB2DF /* Task.swift */,
 				A9FB363E1D76587800DBB2DF /* TaskViewController.swift */,
+				0A4B74E01D769F5D00227B1B /* TaskTableViewCell.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C4E2971D7603D20041220C /* MainController.swift in Sources */,
+				0A4B74E11D769F5D00227B1B /* TaskTableViewCell.swift in Sources */,
 				A9C4E26B1D76032B0041220C /* SecondViewController.swift in Sources */,
 				A9FB363D1D76584400DBB2DF /* Task.swift in Sources */,
 				A9C4E2671D76032B0041220C /* AppDelegate.swift in Sources */,

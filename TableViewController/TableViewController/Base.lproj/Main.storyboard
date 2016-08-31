@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EJG-KY-Wpl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EJG-KY-Wpl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,30 +14,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="maincell" id="KU9-0d-xKD">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskTableViewCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TaskTableViewCell" id="KU9-0d-xKD" userLabel="TaskTableViewCell" customClass="TaskTableViewCell" customModule="TableViewController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KU9-0d-xKD" id="cXS-hk-puN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxN-bO-8Gk">
-                                            <rect key="frame" x="76" y="11" width="67" height="21"/>
+                                            <rect key="frame" x="59" y="8" width="67" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="2000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diu-MS-KrH">
-                                            <rect key="frame" x="186" y="10" width="76" height="23"/>
+                                            <rect key="frame" x="186" y="8" width="76" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="startCalibration:" destination="ghr-0E-RDt" eventType="touchUpInside" id="ymM-ib-BuO"/>
-                                                <segue destination="4i3-aq-YzO" kind="show" id="3Lc-2J-BUP"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="stateBtn" destination="diu-MS-KrH" id="aJY-2s-hZm"/>
+                                    <outlet property="stepLabel" destination="QxN-bO-8Gk" id="C4K-gd-0rI"/>
+                                    <segue destination="4i3-aq-YzO" kind="showDetail" identifier="showTaskView" id="ZII-4Y-dRT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="12.5" y="-241.5"/>
         </scene>
-        <!--Task View Controller-->
+        <!--校准-->
         <scene sceneID="edt-4C-Y1j">
             <objects>
                 <viewController id="4i3-aq-YzO" customClass="TaskViewController" customModule="TableViewController" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,13 +74,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g13-Vc-s2v">
-                                <rect key="frame" x="179" y="265" width="30" height="30"/>
-                                <state key="normal" title="确认"/>
-                                <connections>
-                                    <segue destination="ghr-0E-RDt" kind="show" identifier="showDetailSegue" id="eep-Iv-C8N"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aI-Jc-9Ic">
                                 <rect key="frame" x="163" y="70" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -93,17 +90,39 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g13-Vc-s2v">
+                                <rect key="frame" x="180" y="265" width="30" height="30"/>
+                                <state key="normal" title="确认"/>
+                                <connections>
+                                    <action selector="saveTasks:" destination="4i3-aq-YzO" eventType="touchUpInside" id="Ioz-vz-fWk"/>
+                                    <segue destination="KQf-uH-LDW" kind="unwind" unwindAction="unwindToMealList:" id="yOA-gH-z3x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="校准" id="CXY-mj-Wat">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="k5U-UT-yuU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rIf-b8-XFd">
+                                <rect key="frame" x="497" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" Save"/>
+                                <connections>
+                                    <segue destination="KQf-uH-LDW" kind="unwind" unwindAction="unwindToMealList:" id="2U4-c3-aoc"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="rIf-b8-XFd" id="pkv-TG-hvu"/>
                         <outlet property="stateTextField" destination="E3C-bi-n8Z" id="BuS-5H-ZQ5"/>
                         <outlet property="stepTextField" destination="6aI-Jc-9Ic" id="Of9-t4-e2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gx-yr-Qd9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KQf-uH-LDW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="613.5" y="-295.5"/>
+            <point key="canvasLocation" x="1200.5" y="-295.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eeI-75-aYF">
@@ -123,8 +142,26 @@
             </objects>
             <point key="canvasLocation" x="-799" y="-241"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q1B-5a-VWk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lfz-Mh-BzU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Azw-AX-1fx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4i3-aq-YzO" kind="relationship" relationship="rootViewController" id="DDY-EN-CEL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iy3-lT-uk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="294"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eep-Iv-C8N"/>
+        <segue reference="ZII-4Y-dRT"/>
     </inferredMetricsTieBreakers>
 </document>
