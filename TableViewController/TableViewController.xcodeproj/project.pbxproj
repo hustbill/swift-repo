@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A916163F1D78909A0080DE1F /* BLESearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A916163E1D78909A0080DE1F /* BLESearchVC.swift */; };
+		A91616411D7891CC0080DE1F /* cellOfdeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91616401D7891CC0080DE1F /* cellOfdeviceTableViewCell.swift */; };
+		A91616431D78924A0080DE1F /* BLEScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91616421D78924A0080DE1F /* BLEScanViewController.swift */; };
+		A9C3CF1E1D78987600C779B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C3CF1D1D78987600C779B2 /* Main.storyboard */; };
+		A9C3CF201D78E4D000C779B2 /* BLEReadWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3CF1F1D78E4D000C779B2 /* BLEReadWriteVC.swift */; };
 		A9C4E2671D76032B0041220C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2661D76032B0041220C /* AppDelegate.swift */; };
 		A9C4E2691D76032B0041220C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E2681D76032B0041220C /* FirstViewController.swift */; };
 		A9C4E26B1D76032B0041220C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E26A1D76032B0041220C /* SecondViewController.swift */; };
-		A9C4E26E1D76032B0041220C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C4E26C1D76032B0041220C /* Main.storyboard */; };
 		A9C4E2701D76032B0041220C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C4E26F1D76032B0041220C /* Assets.xcassets */; };
 		A9C4E2731D76032B0041220C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C4E2711D76032B0041220C /* LaunchScreen.storyboard */; };
 		A9C4E27E1D76032B0041220C /* TableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C4E27D1D76032B0041220C /* TableViewControllerTests.swift */; };
@@ -38,11 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A916163E1D78909A0080DE1F /* BLESearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLESearchVC.swift; sourceTree = "<group>"; };
+		A91616401D7891CC0080DE1F /* cellOfdeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellOfdeviceTableViewCell.swift; sourceTree = "<group>"; };
+		A91616421D78924A0080DE1F /* BLEScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEScanViewController.swift; path = ../BLEScanViewController.swift; sourceTree = "<group>"; };
+		A9C3CF1D1D78987600C779B2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A9C3CF1F1D78E4D000C779B2 /* BLEReadWriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEReadWriteVC.swift; path = ../BLEReadWriteVC.swift; sourceTree = "<group>"; };
 		A9C4E2631D76032B0041220C /* TableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C4E2661D76032B0041220C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C4E2681D76032B0041220C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		A9C4E26A1D76032B0041220C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		A9C4E26D1D76032B0041220C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9C4E26F1D76032B0041220C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9C4E2721D76032B0041220C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9C4E2741D76032B0041220C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,16 +113,20 @@
 		A9C4E2651D76032B0041220C /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A9C3CF1F1D78E4D000C779B2 /* BLEReadWriteVC.swift */,
+				A91616421D78924A0080DE1F /* BLEScanViewController.swift */,
 				A9C4E2661D76032B0041220C /* AppDelegate.swift */,
 				A9C4E2681D76032B0041220C /* FirstViewController.swift */,
 				A9C4E26A1D76032B0041220C /* SecondViewController.swift */,
-				A9C4E26C1D76032B0041220C /* Main.storyboard */,
+				A9C3CF1D1D78987600C779B2 /* Main.storyboard */,
 				A9C4E26F1D76032B0041220C /* Assets.xcassets */,
 				A9C4E2711D76032B0041220C /* LaunchScreen.storyboard */,
 				A9C4E2741D76032B0041220C /* Info.plist */,
 				A9C4E2961D7603D20041220C /* MainController.swift */,
 				A9FB363C1D76584400DBB2DF /* Task.swift */,
 				A9FB363E1D76587800DBB2DF /* TaskViewController.swift */,
+				A916163E1D78909A0080DE1F /* BLESearchVC.swift */,
+				A91616401D7891CC0080DE1F /* cellOfdeviceTableViewCell.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -243,7 +255,7 @@
 			files = (
 				A9C4E2731D76032B0041220C /* LaunchScreen.storyboard in Resources */,
 				A9C4E2701D76032B0041220C /* Assets.xcassets in Resources */,
-				A9C4E26E1D76032B0041220C /* Main.storyboard in Resources */,
+				A9C3CF1E1D78987600C779B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C4E2971D7603D20041220C /* MainController.swift in Sources */,
+				A916163F1D78909A0080DE1F /* BLESearchVC.swift in Sources */,
+				A9C3CF201D78E4D000C779B2 /* BLEReadWriteVC.swift in Sources */,
+				A91616411D7891CC0080DE1F /* cellOfdeviceTableViewCell.swift in Sources */,
 				A9C4E26B1D76032B0041220C /* SecondViewController.swift in Sources */,
 				A9FB363D1D76584400DBB2DF /* Task.swift in Sources */,
+				A91616431D78924A0080DE1F /* BLEScanViewController.swift in Sources */,
 				A9C4E2671D76032B0041220C /* AppDelegate.swift in Sources */,
 				A9C4E2691D76032B0041220C /* FirstViewController.swift in Sources */,
 				A9FB363F1D76587800DBB2DF /* TaskViewController.swift in Sources */,
@@ -309,14 +325,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A9C4E26C1D76032B0041220C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9C4E26D1D76032B0041220C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A9C4E2711D76032B0041220C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

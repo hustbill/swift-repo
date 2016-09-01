@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RAT-b4-Crm">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bluetooth Device List-->
+        <scene sceneID="rVe-S6-nBd">
+            <objects>
+                <tableViewController storyboardIdentifier="BLESearchVC" id="TAF-7p-7JR" customClass="BLESearchVC" customModule="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rN3-OU-Jcj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellOfdeviceTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOfdeviceTableViewCell" id="2gT-j0-ht5" customClass="cellOfdeviceTableViewCell" customModule="TableViewController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2gT-j0-ht5" id="xBR-pv-EFj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omn-0q-b3o">
+                                            <rect key="frame" x="86" y="8" width="178" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCo-np-pC3">
+                                            <rect key="frame" x="304" y="7" width="153" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="bUM-St-Lw0" kind="show" id="N0C-SD-Ucw"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RCo-np-pC3" firstAttribute="top" secondItem="xBR-pv-EFj" secondAttribute="topMargin" constant="-1" id="7We-ZY-mdj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="RCo-np-pC3" secondAttribute="trailing" constant="135" id="AhE-nf-ASv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="omn-0q-b3o" secondAttribute="bottom" constant="6" id="dS0-Jw-UBn"/>
+                                        <constraint firstItem="RCo-np-pC3" firstAttribute="leading" secondItem="omn-0q-b3o" secondAttribute="trailing" constant="40" id="eQw-sM-JqK"/>
+                                        <constraint firstItem="RCo-np-pC3" firstAttribute="leading" secondItem="omn-0q-b3o" secondAttribute="trailing" constant="40" id="fW5-Q3-yFt"/>
+                                        <constraint firstItem="omn-0q-b3o" firstAttribute="top" secondItem="xBR-pv-EFj" secondAttribute="topMargin" id="jfx-Bf-U9O"/>
+                                        <constraint firstItem="omn-0q-b3o" firstAttribute="leading" secondItem="xBR-pv-EFj" secondAttribute="leadingMargin" constant="78" id="tjX-CY-vJd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="RCo-np-pC3" secondAttribute="bottom" constant="-2" id="zkN-NC-DjV"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectDeviceBtn" destination="RCo-np-pC3" id="ZP2-rR-mrc"/>
+                                    <outlet property="textTitle" destination="omn-0q-b3o" id="vak-sQ-acR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TAF-7p-7JR" id="Kks-FX-POY"/>
+                            <outlet property="delegate" destination="TAF-7p-7JR" id="wdk-yg-FBh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bluetooth Device List" id="q9J-1S-UH1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIt-aa-gGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="184"/>
+        </scene>
+        <!--Read WriteVC-->
+        <scene sceneID="sk0-WS-7xi">
+            <objects>
+                <viewController id="bUM-St-Lw0" customClass="BLEReadWriteVC" customModule="TableViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="72Y-5X-i7r"/>
+                        <viewControllerLayoutGuide type="bottom" id="iir-Va-vwR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4hY-RD-j5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnU-so-Fch">
+                                <rect key="frame" x="77" y="163" width="411" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ux-z1-iFR">
+                                <rect key="frame" x="77" y="301" width="396" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="bleInfoLabel" destination="pnU-so-Fch" id="qIT-dh-Iyd"/>
+                        <outlet property="writeInfoTextField" destination="6ux-z1-iFR" id="Syy-8N-Xbm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfw-bW-Q6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="156"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ITK-bg-dgm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAT-b4-Crm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f51-BS-MsX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TAF-7p-7JR" kind="relationship" relationship="rootViewController" id="8Jc-YX-haC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocG-Hh-PkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198" y="184"/>
+        </scene>
+    </scenes>
+</document>

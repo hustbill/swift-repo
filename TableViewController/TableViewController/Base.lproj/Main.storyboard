@@ -33,11 +33,14 @@
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="startCalibration:" destination="ghr-0E-RDt" eventType="touchUpInside" id="ymM-ib-BuO"/>
-                                                <segue destination="4i3-aq-YzO" kind="show" id="3Lc-2J-BUP"/>
+                                                <segue destination="0QB-DV-5dB" kind="show" id="tm4-3N-K8i"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3fl-ey-lsH" kind="show" id="tj3-KC-Ko8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,6 +55,63 @@
             </objects>
             <point key="canvasLocation" x="12.5" y="-241.5"/>
         </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="Lv6-T2-rmY">
+            <objects>
+                <viewController id="3fl-ey-lsH" customClass="BLEScanViewController" customModule="TableViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g3r-Za-0cA"/>
+                        <viewControllerLayoutGuide type="bottom" id="8UH-zy-Rt4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QXG-mJ-u3j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-ts-Voj">
+                                <rect key="frame" x="108" y="164" width="179" height="87"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="Labelvalue" destination="sJl-ts-Voj" id="unK-HN-uGW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEO-Uj-TuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153.5" y="382.5"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="Orv-Qb-djC">
+            <objects>
+                <tableViewController id="0QB-DV-5dB" customClass="BLESearchVC" customModule="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l11-Q6-5OM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NpI-NI-SXl" customClass="cellOfdeviceTableViewCell" customModule="TableViewController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NpI-NI-SXl" id="hAX-zT-keb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0QB-DV-5dB" id="mwf-s1-Ylw"/>
+                            <outlet property="delegate" destination="0QB-DV-5dB" id="RQq-eh-R4o"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klX-w0-WGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="205"/>
+        </scene>
         <!--Task View Controller-->
         <scene sceneID="edt-4C-Y1j">
             <objects>
@@ -61,7 +121,7 @@
                         <viewControllerLayoutGuide type="bottom" id="OXk-Gf-2R4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jkk-Jh-PHD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="校准步骤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM7-VV-Yge">

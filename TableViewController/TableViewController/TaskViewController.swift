@@ -43,11 +43,11 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             
             // Set the meal to be passed to MealListTableViewController after the unwind segue.
             
-            //svc.tasks.append(Task(step: stepNum!, state: stepState)!)
+            svc.tasks.append(Task(step: stepNum!, state: stepState)!)
             print(svc.tasks.count)
-            print(stepNum)
+            //print(stepNum)
             
-            svc.tasks[stepNum!].state = stepState
+            //svc.tasks[stepNum!].state = stepState
             
             
         }
