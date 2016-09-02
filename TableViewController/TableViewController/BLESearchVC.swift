@@ -178,69 +178,151 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
                 readCharacteristics = thisCharacteristic
                 // 6、Retrieving the Value of a Characteristic
                 print(" 6、Retrieving the Value of a Characteristic")
-                peripheral.readValueForCharacteristic(readCharacteristics)
-            }else if(thisCharacteristic.UUID == CBUUID(string: nRF_TX)){
-                let nRFtxCharactic = (thisCharacteristic as CBCharacteristic)
+                // peripheral.readValueForCharacteristic(readCharacteristics)
+            }
+            
+            if(thisCharacteristic.UUID == CBUUID(string: nRF_TX)){
+                _ = (thisCharacteristic as CBCharacteristic)
                 writeCharacteristics = thisCharacteristic
-                //= (thisCharacteristic as CBCharacteristic)
-                //peripheral.writeValue(NSData(bytes: &alertLevel, length: 1), forCharacteristic: writeCharacteristics as CBCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
-                // updated by bzhang 08/12/16
-                print("did discover charateristic,  peripheral.writeValue ")
-                let data = NSData(bytes: [0x02,0x50] as [UInt8], length: 2)
-                print(data)
+                 print("did discover charateristic,  peripheral.writeValue ")
+                let fileName = "CAL0.TXT"
+                //let fileName = "PLS.AMO"
+                let data = prepareCalibratinData(fileName)
+                //let data = prepareAMOData(fileName)
+                print("\(data)")
                 peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
                                       type: CBCharacteristicWriteType.WithoutResponse)
-            } else {
-//                 var alertLevel:UInt8 = 0x02
-//                print("linkLossAlertService Discover characteristic \(charateristic)")
-//                writeCharacteristics = (charateristic as CBCharacteristic)
-//                //linkLossAlertCharacteristic 写入没有问题，所以通过这个写入来进行绑定
-//                peripheral.writeValue(NSData(bytes: &alertLevel, length: 1), forCharacteristic: writeCharacteristics , type: CBCharacteristicWriteType.WithoutResponse)
-                peripheral.setNotifyValue(true, forCharacteristic: thisCharacteristic)
-                readCharacteristics = thisCharacteristic
-                // 6、Retrieving the Value of a Characteristic
-                print(" 6、Retrieving the Value of a Characteristic from vívofit ")
-                peripheral.readValueForCharacteristic(readCharacteristics)
-                
-                
+      
             }
+
             
         }
     }
+    // data : 0x10 0x70 C A L 1 . T X T
+    func prepareCalibratinData(fileName : String) -> NSData {
+        var txBuffer:[UInt8] = [0x10, 0x70]
+        let buf = [UInt8](fileName.utf8)     // send file name
+        txBuffer += buf
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
+      
+        return data
+    }
+    
+    // data : 0x09 0x70 PLS.AMO
+    func prepareAMOData(fileName : String) -> NSData {
+        var txBuffer:[UInt8] = [0x09, 0x70]
+        let buf = [UInt8](fileName.utf8)     // send file name
+        txBuffer += buf
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
+        return data
+    }
+    
+    //check write
+    func peripheral(peripheral: CBPeripheral!, didWriteValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
+        if(error != nil){
+            //print("Error writing characteristic value: \(error.localizedDescription)")
+        //    print("Error writing characteristic value: \(error.localizedDescription)")
+           print("Write failed...error: \(error)")
+//            return
+            
+        }else{
+            print("Write value success!")
+        }
+    }
+    
+    // data : 0x10 0xC0 10.8
+    func prepareGlucoseData(glucoseval : String) -> NSData {
+        var txBuffer:[UInt8] = [0x06, 0xC0]
+        let buf = [UInt8](glucoseval.utf8)     // send glucose name
+       
+        txBuffer += buf
+         print(txBuffer)
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
+        
+        return data
+    }
     
     // 6.1 callback function for reading the value of Characteristic
-    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
+    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         if(error != nil){
-            print("Error Reading characteristic value: \(error.localizedDescription)")
+            print("Error Reading characteristic value: \(error)")
         }else{
-            var data = characteristic.value
-            print("Update value is \(data)")
+            // var count:UInt = 0
+            let data = characteristic.value
+            print("M3 response : Update value is \(data)")
+         
+            let count = data!.length / sizeof(UInt8)
+            
+            // create an array of Uint8
+            var array = [UInt8](count: count, repeatedValue: 0)
+            
+            // copy bytes into array
+            data!.getBytes(&array, length:count * sizeof(UInt8))
+            
+            print(array) // [3, 0, 6]
+
+            
+            if (array[2] == 6) {  // 0x30006   ACK from M3
+                let glucoseval : String = "10.8"
+                let glucoseData =  prepareGlucoseData(glucoseval)
+                print("Send glucose data to M3 : \(glucoseData)")
+                peripheral.writeValue(glucoseData, forCharacteristic: writeCharacteristics as CBCharacteristic,
+                                      type: CBCharacteristicWriteType.WithoutResponse)
+            }
+            
+//            characteristic.value!.getBytes(&count, length:sizeof(UInt32))
+//            let str = NSString(format: "%llu", count) as String
+//            print(str)
         }
+    }
+    
+//    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+//        for charateristic in service.characteristics!{
+//            
+//            let thisCharacteristic = charateristic
+//            // Set notify for characteristics here.
+//            if(thisCharacteristic.UUID == CBUUID(string: nRF_RX)){
+//                peripheral.setNotifyValue(true, forCharacteristic: thisCharacteristic)
+//                readCharacteristics = thisCharacteristic
+//                // 6?Retrieving the Value of a Characteristic
+//                print(" 6?Retrieving the Value of a Characteristic")
+//                // peripheral.readValueForCharacteristic(readCharacteristics)
+//            }
+//            
+//            if(thisCharacteristic.UUID == CBUUID(string: nRF_TX)){
+//                _ = (thisCharacteristic as CBCharacteristic)
+//                writeCharacteristics = thisCharacteristic
+//                print("did discover charateristic,  peripheral.writeValue ")
+//                let fileName = "CAL0.TXT"
+//                //let fileName = "PLS.AMO"
+//                let data = prepareCalibratinData(fileName)
+//                //let data = prepareAMOData(fileName)
+//                print("\(data)")
+//                peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
+//                                      type: CBCharacteristicWriteType.WithoutResponse)
+//                
+//            }
+//            
+//            
+//        }
+//    }
+    
+    func sendBloodGlucoseVal(glucoseval : String) {
+        let data = prepareGlucoseData(glucoseval)
+        print(data)
+        
+//        peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
+//                              type: CBCharacteristicWriteType.WithoutResponse)
         
     }
+    
+   
     
     
     //check subscribe
     func peripheral(peripheral: CBPeripheral, didSubscribeToCharacteristic charceteristic: CBCharacteristic, error: NSError?){
         print("subscribe \(charceteristic.UUID)")
     }
-    
-    // 
-    
-    
-    //check write
-    func peripheral(peripheral: CBPeripheral,
-                    didWriteValueForCharacteristic characteristic: CBCharacteristic,
-                                                   error: NSError?)
-    {
-        if (error != nil) {
-            print("Write failed...error: \(error)")
-            return
-        }
-        
-        print("Write successul！")
-    }
-    
     
     
     //table view
