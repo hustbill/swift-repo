@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RAT-b4-Crm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NhC-SY-IR3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,14 +9,14 @@
         <!--Bluetooth Device List-->
         <scene sceneID="rVe-S6-nBd">
             <objects>
-                <tableViewController storyboardIdentifier="BLESearchVC" id="TAF-7p-7JR" customClass="BLESearchVC" customModule="TableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BLESearchVC" id="TAF-7p-7JR" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rN3-OU-Jcj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellOfdeviceTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOfdeviceTableViewCell" id="2gT-j0-ht5" customClass="cellOfdeviceTableViewCell" customModule="TableViewController" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2gT-j0-ht5" id="xBR-pv-EFj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -64,6 +64,69 @@
             </objects>
             <point key="canvasLocation" x="1010" y="184"/>
         </scene>
+        <!--WriteBLE-->
+        <scene sceneID="rjS-YK-Pet">
+            <objects>
+                <viewController title="WriteBLE" id="NhC-SY-IR3" customClass="BLESearchVC" customModule="TableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RED-rQ-Zq9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qtn-EY-Sro"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YpM-gZ-zr7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ3-YI-DcH">
+                                <rect key="frame" x="55" y="183" width="289" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xzH-3D-Dim">
+                                <rect key="frame" x="55" y="287" width="289" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmX-bm-qVl">
+                                <rect key="frame" x="49" y="402" width="289" height="30"/>
+                                <color key="backgroundColor" red="0.87824417561029022" green="0.95849291981384255" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Write to M3">
+                                    <color key="titleShadowColor" red="0.69422113110000006" green="0.90448959179999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="write2Device:" destination="NhC-SY-IR3" eventType="touchUpInside" id="zcg-o0-jD5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGF-46-7tC">
+                                <rect key="frame" x="55" y="234" width="276" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSk-eI-nfu">
+                                <rect key="frame" x="49" y="349" width="289" height="30"/>
+                                <color key="backgroundColor" red="0.87824417560000001" green="0.95849291979999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Connect to M3">
+                                    <color key="titleShadowColor" red="0.69422113110000006" green="0.90448959179999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="connect2Device:" destination="NhC-SY-IR3" eventType="touchUpInside" id="JJ4-yM-nLR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="commandTextField" destination="rGF-46-7tC" id="qWZ-bm-z1U"/>
+                        <outlet property="connect2M3Btn" destination="tSk-eI-nfu" id="gch-qe-RDG"/>
+                        <outlet property="deviceLabel" destination="iQ3-YI-DcH" id="Tg3-pF-Fub"/>
+                        <outlet property="glucoseTextField" destination="xzH-3D-Dim" id="MnZ-qd-nN1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pC-rZ-fyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927.5" y="731.5"/>
+        </scene>
         <!--Read WriteVC-->
         <scene sceneID="sk0-WS-7xi">
             <objects>
@@ -109,9 +172,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="TAF-7p-7JR" kind="relationship" relationship="rootViewController" id="8Jc-YX-haC"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocG-Hh-PkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

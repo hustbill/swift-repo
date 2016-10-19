@@ -35,15 +35,32 @@ var alertLevel = 0x02
 var reqGlucose = 0x0250  // 02 -length,  50 - Request for glucose reading
 var check:Bool = false
 
-class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripheralDelegate{
+class BLESearchVC : UIViewController, CBCentralManagerDelegate,  CBPeripheralDelegate{
     
 
+    @IBOutlet weak var deviceLabel: UILabel!
+    
+    @IBOutlet weak var commandTextField: UITextField!
+  
+    @IBOutlet weak var glucoseTextField: UITextField!
+    
+    @IBOutlet weak var connect2M3Btn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //start up a central manager object
         activeCentralManager = CBCentralManager(delegate: self, queue: nil)
+        
+        srand48(Int(time(nil)))
+        let randomCalibrationVal = String(format:"%.1f", drand48() * 12)
+        print("\(randomCalibrationVal)")
+
+        glucoseTextField.text = randomCalibrationVal
+        let randomNumber = arc4random_uniform(10)
+        commandTextField.text = (String)(0xC0 + randomNumber)
+        print(commandTextField.text)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,12 +69,9 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
         devicesRSSI.removeAll(keepCapacity: false)
         // Initialize central manager on load
         activeCentralManager = CBCentralManager(delegate: self, queue: nil)
-        
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(BLESearchVC.update), forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl = refreshControl
-    }
-    
+     
+      
+    }    
     func update(){
         // Clear devices dictionary.
         devices.removeAll(keepCapacity: false)
@@ -65,7 +79,6 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
         check = false
         // Initialize central manager on load
         activeCentralManager = CBCentralManager(delegate: self, queue: nil)
-        self.refreshControl?.endRefreshing()
     }
     
     //check the state of bluetooth，
@@ -96,7 +109,6 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
             // Can have different conditions for all states if needed - print generic message for now
             print("Bluetooth switched off or not initialized")
         }
-        
     }
     
     //save the bluetooth device in a dictionary
@@ -107,7 +119,6 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
                 devices[name] = peripheral
                 devicesRSSI.append(RSSI)
                 peripheral.delegate = self
-                self.tableView.reloadData()
                 print("CenCentalManagerDelegate didDiscoverPeripheral")
                 print("Discovered \(name)")
                 print("Peripheral: \(devices[name])")
@@ -115,6 +126,32 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
             }
         }
         
+    }
+    
+    @IBAction func connect2Device(sender: AnyObject) {
+        print("connect2Device")
+        connectDevice()
+    }
+    
+    //click to choose
+     func connectDevice()  {
+        if (devices.count > 0) {
+            let discoveredPeripheralArray = Array(devices.values)
+            peripheralDevice = discoveredPeripheralArray[0]
+            
+            peripheralDevice!.delegate = self
+            deviceName = peripheralDevice!.name
+            // Stop looking for more peripherals.
+            activeCentralManager!.stopScan()
+            print("Stop scan the Ble Devices")
+            // Connect to this peripheral.
+            activeCentralManager!.connectPeripheral(peripheralDevice!, options: nil)
+            print("Connecting \(deviceName)")
+            if let name = deviceName{
+               deviceLabel.text = name
+            }
+      }
+
     }
     
     //Did connect Peripheral
@@ -167,6 +204,13 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
             
         }
     }
+    
+    @IBAction func write2Device(sender: AnyObject) {
+        print("write to M3")
+      
+    }
+    
+    
     //did discover charateristic
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         for charateristic in service.characteristics!{
@@ -184,38 +228,20 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
             if(thisCharacteristic.UUID == CBUUID(string: nRF_TX)){
                 _ = (thisCharacteristic as CBCharacteristic)
                 writeCharacteristics = thisCharacteristic
-                 print("did discover charateristic,  peripheral.writeValue ")
-                let fileName = "CAL0.TXT"
+                print("did discover charateristic,  peripheral.writeValue ")
                 //let fileName = "PLS.AMO"
-                let data = prepareCalibratinData(fileName)
+                let glucoseval : String =  glucoseTextField.text!
+                let optCode = (UInt8)(commandTextField.text!)
+                let data = prepareGlucoseData(optCode!, glucoseval: glucoseval)
                 //let data = prepareAMOData(fileName)
                 print("\(data)")
                 peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
                                       type: CBCharacteristicWriteType.WithoutResponse)
-      
+                
             }
-
-            
         }
     }
-    // data : 0x10 0x70 C A L 1 . T X T
-    func prepareCalibratinData(fileName : String) -> NSData {
-        var txBuffer:[UInt8] = [0x10, 0x70]
-        let buf = [UInt8](fileName.utf8)     // send file name
-        txBuffer += buf
-        let data = NSData(bytes: txBuffer, length: txBuffer.count)
-      
-        return data
-    }
-    
-    // data : 0x09 0x70 PLS.AMO
-    func prepareAMOData(fileName : String) -> NSData {
-        var txBuffer:[UInt8] = [0x09, 0x70]
-        let buf = [UInt8](fileName.utf8)     // send file name
-        txBuffer += buf
-        let data = NSData(bytes: txBuffer, length: txBuffer.count)
-        return data
-    }
+
     
     //check write
     func peripheral(peripheral: CBPeripheral!, didWriteValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
@@ -230,17 +256,7 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
         }
     }
     
-    // data : 0x10 0xC0 10.8
-    func prepareGlucoseData(glucoseval : String) -> NSData {
-        var txBuffer:[UInt8] = [0x06, 0xC0]
-        let buf = [UInt8](glucoseval.utf8)     // send glucose name
-       
-        txBuffer += buf
-         print(txBuffer)
-        let data = NSData(bytes: txBuffer, length: txBuffer.count)
-        
-        return data
-    }
+   
     
     // 6.1 callback function for reading the value of Characteristic
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
@@ -262,59 +278,63 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
             print(array) // [3, 0, 6]
 
             
-            if (array[2] == 6) {  // 0x30006   ACK from M3
-                let glucoseval : String = "10.8"
-                let glucoseData =  prepareGlucoseData(glucoseval)
-                print("Send glucose data to M3 : \(glucoseData)")
-                peripheral.writeValue(glucoseData, forCharacteristic: writeCharacteristics as CBCharacteristic,
-                                      type: CBCharacteristicWriteType.WithoutResponse)
-            }
-            
+//            if (array[2] == 6) {  // 0x30006   ACK from M3
+//                let glucoseval : String = glucoseTextField.text!
+//                let optCode = (UInt8)(commandTextField.text!)
+//                let glucoseData =  prepareGlucoseData(optCode!, glucoseval: glucoseval)
+//                print("Send glucose data to M3 : \(glucoseData)")
+//                peripheral.writeValue(glucoseData, forCharacteristic: writeCharacteristics as CBCharacteristic,
+//                                      type: CBCharacteristicWriteType.WithoutResponse)
+//            }
+//            
 //            characteristic.value!.getBytes(&count, length:sizeof(UInt32))
 //            let str = NSString(format: "%llu", count) as String
 //            print(str)
         }
     }
     
-//    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
-//        for charateristic in service.characteristics!{
-//            
-//            let thisCharacteristic = charateristic
-//            // Set notify for characteristics here.
-//            if(thisCharacteristic.UUID == CBUUID(string: nRF_RX)){
-//                peripheral.setNotifyValue(true, forCharacteristic: thisCharacteristic)
-//                readCharacteristics = thisCharacteristic
-//                // 6?Retrieving the Value of a Characteristic
-//                print(" 6?Retrieving the Value of a Characteristic")
-//                // peripheral.readValueForCharacteristic(readCharacteristics)
-//            }
-//            
-//            if(thisCharacteristic.UUID == CBUUID(string: nRF_TX)){
-//                _ = (thisCharacteristic as CBCharacteristic)
-//                writeCharacteristics = thisCharacteristic
-//                print("did discover charateristic,  peripheral.writeValue ")
-//                let fileName = "CAL0.TXT"
-//                //let fileName = "PLS.AMO"
-//                let data = prepareCalibratinData(fileName)
-//                //let data = prepareAMOData(fileName)
-//                print("\(data)")
-//                peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
-//                                      type: CBCharacteristicWriteType.WithoutResponse)
-//                
-//            }
-//            
-//            
-//        }
-//    }
     
-    func sendBloodGlucoseVal(glucoseval : String) {
-        let data = prepareGlucoseData(glucoseval)
-        print(data)
+    // data : 0x10 0xC0 10.8
+    // optCode : 0xC0, 0XC1, 0xC2 ...
+    func prepareGlucoseData(optCode : UInt8, glucoseval : String) -> NSData {
+        var txBuffer:[UInt8] = [0x06, optCode]
+        let buf = [UInt8](glucoseval.utf8)     // send glucose name
         
-//        peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
-//                              type: CBCharacteristicWriteType.WithoutResponse)
+        txBuffer += buf
+        print(txBuffer)
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
         
+        return data
     }
+    
+    // data : 0x10 0x70 C A L 1 . T X T
+    func prepareCalibratinData(fileName : String) -> NSData {
+        var txBuffer:[UInt8] = [0x10, 0x70]
+        let buf = [UInt8](fileName.utf8)     // send file name
+        txBuffer += buf
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
+        
+        return data
+    }
+    
+    // data : 0x09 0x70 PLS.AMO
+    func prepareAMOData(fileName : String) -> NSData {
+        var txBuffer:[UInt8] = [0x09, 0x70]
+        let buf = [UInt8](fileName.utf8)     // send file name
+        txBuffer += buf
+        let data = NSData(bytes: txBuffer, length: txBuffer.count)
+        return data
+    }
+    
+   
+//    func sendBloodGlucoseVal(glucoseval : String) {
+//        let data = prepareGlucoseData(glucoseval)
+//        print(data)
+//        
+////        peripheral.writeValue(data, forCharacteristic: writeCharacteristics as CBCharacteristic,
+////                              type: CBCharacteristicWriteType.WithoutResponse)
+//        
+//    }
     
    
     
@@ -322,56 +342,6 @@ class BLESearchVC : UITableViewController, CBCentralManagerDelegate,  CBPeripher
     //check subscribe
     func peripheral(peripheral: CBPeripheral, didSubscribeToCharacteristic charceteristic: CBCharacteristic, error: NSError?){
         print("subscribe \(charceteristic.UUID)")
-    }
-    
-    
-    //table view
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return devices.count
-        
-    }
-    //cell for row
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("cell shows")
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellOfdeviceTableViewCell", forIndexPath: indexPath) as! cellOfdeviceTableViewCell
-        
-        var discoveredPeripheralArray = Array(devices.values)
-        if let name = discoveredPeripheralArray[indexPath.row].name{
-            if let textLabelText = cell.textTitle{
-                textLabelText.text = name
-                print("Label name is \(name)")
-            }
-            
-            
-        }
-        return cell
-    }
-    
-    //click to choose
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (devices.count > 0) {
-            let discoveredPeripheralArray = Array(devices.values)
-            peripheralDevice = discoveredPeripheralArray[indexPath.row]
-            
-            peripheralDevice!.delegate = self
-            deviceName = peripheralDevice!.name
-            // Stop looking for more peripherals.
-            activeCentralManager!.stopScan()
-            print("Stop scan the Ble Devices")
-            // Connect to this peripheral.
-            activeCentralManager!.connectPeripheral(peripheralDevice!, options: nil)
-            if let _ = navigationController{
-                navigationItem.title = "Connecting \(deviceName)"
-            }
-            
-        }
-        /*if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-         if cell.accessoryType == .None {
-         cell.accessoryType = .Checkmark } else {
-         cell.accessoryType = .None }
-         }
-         tableView.deselectRowAtIndexPath(indexPath, animated: true)*/
     }
     
     
